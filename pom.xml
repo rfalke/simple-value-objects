@@ -10,8 +10,12 @@
 	<url>https://github.com/rfalke/simple-value-objects</url>
 	<organization>
 		<name>codecentric AG</name>
-		<url>http://www.codecentric.de/</url>
+		<url>https://www.codecentric.de/</url>
 	</organization>
+
+	<modules>
+        <module>jackson-normal</module>
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,5 +30,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 </project>
