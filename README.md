@@ -2,6 +2,6 @@
 
 Why do you still write getter/setters?
 
-sub-projects:
+sub-project(s):
 
 - jackson-normal
