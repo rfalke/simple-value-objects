@@ -4,6 +4,11 @@
 	<groupId>de.codecentric.demo.simple.value.objects.jackson</groupId>
 	<artifactId>jackson-normal</artifactId>
 
+	<properties>
+		<project.build.sourceEncoding>${project.parent.project.build.sourceEncoding}</project.build.sourceEncoding>
+		<java.version>${project.parent.java.version}</java.version>
+	</properties>
+
 	<parent>
 		<groupId>de.codecentric.demo.simple.value.objects</groupId>
 		<artifactId>simple-value-objects</artifactId>

@@ -8,17 +8,21 @@ public class Company implements Serializable {
 
 	private static final long serialVersionUID = -7531923832214468716L;
 
-	private final String name;
+	private String name;
 	private Address companyAddress;
 	private List<Customer> customers;
 
-	public Company(final String name) {
-		this.name = name;
+	// jackson required a default constructor for deserializen
+	public Company() {
 		this.customers = new ArrayList<Customer>();
 	}
 
 	public final String getName() {
 		return name;
+	}
+
+	public final void setName(final String name) {
+		this.name = name;
 	}
 
 	public final Address getCompanyAddress() {
