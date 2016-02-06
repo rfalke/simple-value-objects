@@ -1,34 +1,34 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.codecentric.demo.simple.value.objects</groupId>
-	<artifactId>simple-value-objects</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<name>Simple Value Objects</name>
-	<description>Why do you still write getter/setters?</description>
-	<url>https://github.com/rfalke/simple-value-objects</url>
-	<organization>
-		<name>codecentric AG</name>
-		<url>https://www.codecentric.de/</url>
-	</organization>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>de.codecentric.demo.simple.value.objects</groupId>
+    <artifactId>simple-value-objects</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Simple Value Objects</name>
+    <description>Why do you still write getter/setters?</description>
+    <url>https://github.com/rfalke/simple-value-objects</url>
+    <organization>
+        <name>codecentric AG</name>
+        <url>https://www.codecentric.de/</url>
+    </organization>
 
-	<modules>
+    <modules>
         <module>jackson-normal</module>
         <module>hibernate-normal</module>
     </modules>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
