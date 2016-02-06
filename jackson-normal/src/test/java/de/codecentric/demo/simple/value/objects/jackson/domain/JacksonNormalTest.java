@@ -7,24 +7,34 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.UUID;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
 
 public class JacksonNormalTest {
 
-    private static final String CITY = "Berlin";
+    @Test
+    public void testRoundTrip() throws Exception {
+        Company initialValue = createCompany();
+        final String firstJson = toJsonString(initialValue);
+        Company oneRoundTrip = fromJsonString(firstJson);
+        assertReflectionEquals(initialValue, oneRoundTrip);
 
-    public Company createDummyObjects() {
+        final String secondJson = toJsonString(oneRoundTrip);
+        assertThat(secondJson, is(firstJson));
+    }
+
+    public Company createCompany() {
         Address companyAddress = new Address();
         companyAddress.setStreet("Ritterstr.");
         companyAddress.setHouseNumber("11");
         companyAddress.setZipCode("10969");
-        companyAddress.setCity(CITY);
+        companyAddress.setCity("Berlin");
         Address generalCustomerAddress = new Address();
         generalCustomerAddress.setStreet("Friedrichstraße");
         generalCustomerAddress.setHouseNumber("43-45");
         generalCustomerAddress.setZipCode("10117");
-        generalCustomerAddress.setCity(CITY);
+        generalCustomerAddress.setCity("Berlin");
 
         Company company = new Company();
         company.setName("Example Inc.");
@@ -40,34 +50,13 @@ public class JacksonNormalTest {
         return company;
     }
 
-    @Test
-    public void serializeTest() {
+    private String toJsonString(Company company) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        Company company = createDummyObjects();
-        try {
-            // mapper.writeValue(File.createTempFile("serializeTest", "json"),
-            // company);
-            final String json = mapper.writeValueAsString(company);
-            assertTrue(json.contains(CITY));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        return mapper.writeValueAsString(company);
     }
 
-    @Test
-    public void deserializeTest() {
+    private Company fromJsonString(String jsonString) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            final String jsonString = "{\"name\":\"Example Inc.\",\"companyAddress\":{\"street\":\"Ritterstr.\",\"houseNumber\":\"11\",\"zipCode\":\"10969\",\"city\":\"Berlin\"},\"customers\":["
-                    + "{\"firstName\":\"8f945e9a\",\"lastName\":\"c8db4c20\",\"customerAddress\":{\"street\":\"Friedrichstraße\",\"houseNumber\":\"43-45\",\"zipCode\":\"10117\",\"city\":\"Berlin\"}}"
-                    + ",{\"firstName\":\"02d3ac95\",\"lastName\":\"b584d3ee\",\"customerAddress\":{\"street\":\"Friedrichstraße\",\"houseNumber\":\"43-45\",\"zipCode\":\"10117\",\"city\":\"Berlin\"}}"
-                    + ",{\"firstName\":\"7c9b6e1f\",\"lastName\":\"c10cf6ce\",\"customerAddress\":{\"street\":\"Friedrichstraße\",\"houseNumber\":\"43-45\",\"zipCode\":\"10117\",\"city\":\"Berlin\"}}"
-                    + ",{\"firstName\":\"6cdd3e92\",\"lastName\":\"4dd2f501\",\"customerAddress\":{\"street\":\"Friedrichstraße\",\"houseNumber\":\"43-45\",\"zipCode\":\"10117\",\"city\":\"Berlin\"}}"
-                    + ",{\"firstName\":\"01d99778\",\"lastName\":\"eea68498\",\"customerAddress\":{\"street\":\"Friedrichstraße\",\"houseNumber\":\"43-45\",\"zipCode\":\"10117\",\"city\":\"Berlin\"}}]}";
-            Company companyObject = mapper.readValue(jsonString, Company.class);
-            assertEquals(CITY, companyObject.getCompanyAddress().getCity());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return mapper.readValue(jsonString, Company.class);
     }
 }
