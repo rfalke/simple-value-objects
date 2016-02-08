@@ -7,46 +7,42 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table
 public class Company extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 8492591792351085610L;
 
     private String name;
-
     private Address companyAddress;
-
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private List<Customer> customers;
+    private List<Customer> customers = new ArrayList<>();
 
     public Company() {
         this.customers = new ArrayList<>();
     }
 
-    public final String getName() {
+    public String getName() {
         return name;
     }
 
-    public final void setName(final String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public final Address getCompanyAddress() {
+    public Address getCompanyAddress() {
         return companyAddress;
     }
 
-    public final void setCompanyAddress(final Address companyAddress) {
+    public void setCompanyAddress(final Address companyAddress) {
         this.companyAddress = companyAddress;
     }
 
-    public final List<Customer> getCustomers() {
+    public List<Customer> getCustomers() {
         return customers;
     }
 
-    public final void setCustomers(final List<Customer> customers) {
+    public void setCustomers(final List<Customer> customers) {
         this.customers = customers;
     }
 

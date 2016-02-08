@@ -14,35 +14,14 @@ public class Address extends BaseEntity implements Serializable {
     private String zipCode;
     private String city;
 
-    public String getStreet() {
-        return street;
+    protected Address() {
+        // empty
     }
 
-    public void setStreet(String street) {
+    public Address(final String street, final String houseNumber, final String zipCode, final String city) {
         this.street = street;
-    }
-
-    public String getHouseNumber() {
-        return houseNumber;
-    }
-
-    public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
         this.city = city;
     }
 }

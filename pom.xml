@@ -19,6 +19,9 @@
         <module>jackson-public-fields</module>
         <module>jackson-final-public-fields</module>
         <module>jackson-final-public-fields-no-annotations</module>
+        <module>hibernate-public-fields</module>
+        <module>hibernate-final-public-fields</module>
+        <module>hibernate-without-accessor-methods</module>
     </modules>
 
     <properties>
