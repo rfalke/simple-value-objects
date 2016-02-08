@@ -24,7 +24,7 @@ public class JacksonNormalTest {
         assertThat(secondJson, is(firstJson));
     }
 
-    public Company createCompany() {
+    private Company createCompany() {
         Address companyAddress = new Address();
         companyAddress.setStreet("Ritterstr.");
         companyAddress.setHouseNumber("11");
