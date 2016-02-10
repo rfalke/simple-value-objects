@@ -13,6 +13,9 @@ public class Customer extends BaseEntity implements Serializable {
     private String firstName;
     private String lastName;
     private Address customerAddress;
+    private String email;
+    private boolean emailVerified;
+    
     @ManyToOne
     private Company company;
 
@@ -24,5 +27,41 @@ public class Customer extends BaseEntity implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.customerAddress = address;
+    }
+    
+    public void moveTo(Address newAddress){
+    	
+    	customerAddress = newAddress;
+    	
+    	// TODO further domain logic?
+    	
+    	// change running orders (not shipped yet)
+    	// => other entities -> needs to be placed in service?
+    	// => or create event
+    	
+    }
+    
+    /*
+     * WRONG:
+     * customer.setEmail("abc@example.com");
+     * customer.setEmailVerified(false);
+     * ...
+     * customer.setEmailVerified(true);
+     * 
+     * 
+     * RIGHT:
+     * customer.changeEmailTo("abc@example.com");
+     * ...
+     * customer.verifyEmail();
+     * 
+     */
+    
+    public void changeEmailTo(String newEmail){
+    	email = newEmail;
+    	emailVerified = false;
+    }
+    
+    public void verifyEmail(){
+    	emailVerified = true;
     }
 }
