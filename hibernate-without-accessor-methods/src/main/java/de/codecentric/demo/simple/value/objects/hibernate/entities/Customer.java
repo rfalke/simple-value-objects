@@ -42,14 +42,14 @@ public class Customer extends BaseEntity implements Serializable {
     }
     
     /*
-     * WRONG:
+     * WITH GETTERS AND SETTERS:
      * customer.setEmail("abc@example.com");
      * customer.setEmailVerified(false);
      * ...
      * customer.setEmailVerified(true);
      * 
      * 
-     * RIGHT:
+     * DOMAIN-SPECIFIC:
      * customer.changeEmailTo("abc@example.com");
      * ...
      * customer.verifyEmail();

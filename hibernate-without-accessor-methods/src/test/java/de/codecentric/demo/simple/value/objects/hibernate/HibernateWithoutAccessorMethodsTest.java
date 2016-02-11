@@ -1,8 +1,9 @@
 package de.codecentric.demo.simple.value.objects.hibernate;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -43,5 +44,19 @@ public class HibernateWithoutAccessorMethodsTest {
         Company company = new Company("Example Inc.", companyAddress,
                 customers.toArray(new Customer[customers.size()]));
         return company;
+    }
+    
+    @Test
+    public void immutabilityTest(){
+    	LocalTime now = LocalTime.now();
+    	String nowstring = now.toString();
+    	// System.out.println(nowstring);
+    	
+    	LocalTime in15Minutes = now.plusMinutes(15);// creates a new object
+    	
+    	String nowstringAfterManipulation = now.toString();
+    	// System.out.println(nowstringAfterManipulation);// prints the same as the statement above
+    	
+    	assertEquals(nowstring, nowstringAfterManipulation);
     }
 }
