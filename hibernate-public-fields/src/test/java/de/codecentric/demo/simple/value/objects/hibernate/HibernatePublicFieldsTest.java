@@ -22,7 +22,7 @@ import de.codecentric.demo.simple.value.objects.hibernate.entities.Customer;
 public class HibernatePublicFieldsTest {
 
 	@Test
-	public void testPersist() {
+	public void testEntity() {
 		EntityManager entityManager = getEntityManager();
 
 		save(entityManager, createCompany());
