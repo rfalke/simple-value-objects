@@ -1,7 +1,7 @@
 package de.codecentric.demo.simple.value.objects.hibernate.entities;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -15,5 +15,5 @@ public class Company extends BaseEntity implements Serializable {
     public String name;
     public Address companyAddress;
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    public List<Customer> customers;
+    public Set<Customer> customers;
 }

@@ -4,7 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.EntityManager;
@@ -76,7 +78,7 @@ public class HibernatePublicFieldsTest {
 		company.name = "Example Inc.";
 		company.companyAddress = companyAddress;
 
-		List<Customer> customers = new ArrayList<>();
+		Set<Customer> customers = new HashSet<>();
 		for (int i = 0; i < 5; i++) {
 			Customer customer = new Customer();
 			customer.firstName = UUID.randomUUID().toString();
