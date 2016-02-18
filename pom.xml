@@ -15,6 +15,7 @@
 
     <modules>
         <module>jackson-normal</module>
+        <module>jackson-normal-without-accessors</module>
         <module>hibernate-normal</module>
         <module>jackson-public-fields</module>
         <module>jackson-final-public-fields</module>
