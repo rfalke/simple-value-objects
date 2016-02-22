@@ -5,23 +5,22 @@ import java.util.Date;
 public class Employee {
 	
 	enum EmploymentState{
-		CURRENT_EMPLOYEE, EX_EMPLOYEE;
+		CURRENT_EMPLOYEE, FORMER_EMPLOYEE;
 	}
 
 	private boolean accessToOfficeBerlin;
 	private boolean accessToWebapp;
 	private double salary;
 	private EmploymentState employmentState;
-	private Date unemploymentDate;
+	private Date dismissalDate;
 	
-	public void unemploy(){
-		
-		if(employmentState == EmploymentState.EX_EMPLOYEE){
-			throw new IllegalStateException("employee already unemployed");
+	public void dismiss(){
+		if(employmentState == EmploymentState.FORMER_EMPLOYEE){
+			throw new IllegalStateException("employee already dismissed");
 		}
 
-		employmentState = EmploymentState.EX_EMPLOYEE;
-		unemploymentDate = new Date();
+		employmentState = EmploymentState.FORMER_EMPLOYEE;
+		dismissalDate = new Date();
 		
 		accessToOfficeBerlin = false;
 		accessToWebapp = false;
