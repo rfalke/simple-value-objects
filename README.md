@@ -1,8 +1,8 @@
 # simple-value-objects
 
-Why do you still write getter/setters?
+Source code of the blog post: [Why do you write accessor methods?](https://blog.codecentric.de/en/2016/02/write-accessor-methods/)
 
-sub-modules:
+Sub-modules:
 
 - [jackson-normal](./jackson-normal)
 - [jackson-normal-without-accessors](./jackson-normal-without-accessors)
